@@ -154,8 +154,22 @@ const nextTicketStatus: Record<TicketStatus, TicketStatus> = {
   Resuelto: "Nuevo",
 };
 
+const appBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+
+function fromBrowserPath(pathname: string) {
+  if (appBasePath && (pathname === appBasePath || pathname.startsWith(`${appBasePath}/`))) {
+    return pathname.slice(appBasePath.length) || "/";
+  }
+  return pathname || "/";
+}
+
+function toBrowserPath(pathname: string) {
+  if (!appBasePath) return pathname;
+  return pathname === "/" ? `${appBasePath}/` : `${appBasePath}${pathname}`;
+}
+
 export default function NexoApp() {
-  const [path, setPath] = useState(() => typeof window === "undefined" ? "/" : window.location.pathname);
+  const [path, setPath] = useState(() => typeof window === "undefined" ? "/" : fromBrowserPath(window.location.pathname));
   const [appReady, setAppReady] = useState(false);
   const [authenticated, setAuthenticated, authHydrated] = usePersistentState("nexo-auth", false);
   const [propertyData, setPropertyData] = usePersistentState<Property[]>("nexo-properties", seedProperties);
@@ -178,7 +192,7 @@ export default function NexoApp() {
   const [toast, setToast] = useState("");
 
   useEffect(() => {
-    const onPop = () => setPath(window.location.pathname);
+    const onPop = () => setPath(fromBrowserPath(window.location.pathname));
     window.addEventListener("popstate", onPop);
     const timer = window.setTimeout(() => setAppReady(true), 650);
     return () => { window.removeEventListener("popstate", onPop); window.clearTimeout(timer); };
@@ -200,7 +214,8 @@ export default function NexoApp() {
   }, [darkMode]);
 
   const navigate = useCallback((to: string) => {
-    if (window.location.pathname !== to) window.history.pushState({}, "", to);
+    const browserPath = toBrowserPath(to);
+    if (window.location.pathname !== browserPath) window.history.pushState({}, "", browserPath);
     setPath(to);
     setMobileSidebar(false);
     setNotificationsOpen(false);

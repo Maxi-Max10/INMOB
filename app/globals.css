@@ -62,7 +62,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--background); color: var(--text); font-family: var(--font-geist-sans), Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
+body { margin: 0; background: var(--background); color: var(--text); font-family: Inter, "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
 button, input, select, textarea { font: inherit; }
 button { color: inherit; }
 button, summary { -webkit-tap-highlight-color: transparent; }

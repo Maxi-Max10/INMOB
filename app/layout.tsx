@@ -1,41 +1,41 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ?? "https://nexo-inmobiliario-mendoza.maxmax011.chatgpt.site";
+const siteOrigin = new URL(siteUrl).origin;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteOrigin),
   title: {
     default: "Nexo Inmobiliario",
     template: "%s · Nexo Inmobiliario",
   },
   description: "Gestión de propiedades, contratos, pagos y clientes para inmobiliarias de Mendoza.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: `${assetBasePath}/favicon.svg`,
+    shortcut: `${assetBasePath}/favicon.svg`,
   },
   openGraph: {
     title: "Nexo Inmobiliario",
     description: "Toda tu inmobiliaria, en un solo lugar.",
     locale: "es_AR",
     type: "website",
-    images: [{ url: "/og.png", width: 1792, height: 1024, alt: "Nexo Inmobiliario - toda tu inmobiliaria, en un solo lugar" }],
+    images: [{ url: `${assetBasePath}/og.png`, width: 1792, height: 1024, alt: "Nexo Inmobiliario - toda tu inmobiliaria, en un solo lugar" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nexo Inmobiliario",
     description: "Toda tu inmobiliaria, en un solo lugar.",
-    images: ["/og.png"],
+    images: [`${assetBasePath}/og.png`],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

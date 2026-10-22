@@ -9,8 +9,8 @@ const siteOrigin = new URL(siteUrl).origin;
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: {
-    default: "Nexo Inmobiliario",
-    template: "%s · Nexo Inmobiliario",
+    default: "POLO Inmobiliario",
+    template: "%s · POLO Inmobiliario",
   },
   description: "Gestión de propiedades, contratos, pagos y clientes para inmobiliarias de Mendoza.",
   icons: {
@@ -18,15 +18,15 @@ export const metadata: Metadata = {
     shortcut: `${assetBasePath}/favicon.svg`,
   },
   openGraph: {
-    title: "Nexo Inmobiliario",
+    title: "POLO Inmobiliario",
     description: "Toda tu inmobiliaria, en un solo lugar.",
     locale: "es_AR",
     type: "website",
-    images: [{ url: `${assetBasePath}/og.png`, width: 1792, height: 1024, alt: "Nexo Inmobiliario - toda tu inmobiliaria, en un solo lugar" }],
+    images: [{ url: `${assetBasePath}/og.png`, width: 1672, height: 941, alt: "POLO Inmobiliario - toda tu inmobiliaria, en un solo lugar" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexo Inmobiliario",
+    title: "POLO Inmobiliario",
     description: "Toda tu inmobiliaria, en un solo lugar.",
     images: [`${assetBasePath}/og.png`],
   },

@@ -1,4 +1,4 @@
-import NexoApp from "@/src/features/NexoApp";
+import PoloApp from "@/src/features/PoloApp";
 
 const sectionRoutes = [
   "login",
@@ -29,5 +29,5 @@ export function generateStaticParams() {
 }
 
 export default function AppRoutePage() {
-  return <NexoApp />;
+  return <PoloApp />;
 }

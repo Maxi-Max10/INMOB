@@ -7,14 +7,14 @@ import { formatCurrency, initials } from "@/src/utils/format";
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={`brand ${compact ? "brand-compact" : ""}`} aria-label="Nexo Inmobiliario">
+    <div className={`brand ${compact ? "brand-compact" : ""}`} aria-label="POLO Inmobiliario">
       <span className="brand-mark" aria-hidden="true">
         <span />
         <span />
       </span>
       {!compact && (
         <span className="brand-copy">
-          <strong>Nexo</strong>
+          <strong>POLO</strong>
           <small>Inmobiliario</small>
         </span>
       )}
@@ -107,7 +107,7 @@ export function PropertyVisual({ variant, className = "", label }: { variant: nu
   return (
     <div className={`property-visual visual-${((variant - 1) % 8) + 1} ${className}`} role="img" aria-label={label ?? "Vista arquitectónica de la propiedad"}>
       <span className="architecture-lines" aria-hidden="true"><i /><i /><i /><i /></span>
-      <span className="visual-label"><Building2 size={14} /> Nexo selección</span>
+      <span className="visual-label"><Building2 size={14} /> POLO selección</span>
     </div>
   );
 }

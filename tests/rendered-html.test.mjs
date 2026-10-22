@@ -14,13 +14,13 @@ async function render(path = "/") {
   );
 }
 
-test("server-renders the Nexo application shell and metadata", async () => {
+test("server-renders the POLO application shell and metadata", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Nexo Inmobiliario<\/title>/i);
+  assert.match(html, /<title>POLO Inmobiliario<\/title>/i);
   assert.match(html, /Gestión de propiedades, contratos, pagos y clientes/i);
   assert.match(html, /app-skeleton/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
@@ -40,8 +40,8 @@ test("keeps the finished product free of the disposable starter preview", async 
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /NexoApp/);
-  assert.match(layout, /Nexo Inmobiliario/);
+  assert.match(page, /PoloApp/);
+  assert.match(layout, /POLO Inmobiliario/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   await assert.rejects(access(new URL("../app/_sites-preview", import.meta.url)));
 });

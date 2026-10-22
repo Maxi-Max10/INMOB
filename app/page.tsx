@@ -1,5 +1,5 @@
-import NexoApp from "@/src/features/NexoApp";
+import PoloApp from "@/src/features/PoloApp";
 
 export default function HomePage() {
-  return <NexoApp />;
+  return <PoloApp />;
 }

@@ -1,4 +1,4 @@
-# Nexo Inmobiliario
+# POLO Inmobiliario
 
 Piloto frontend de una plataforma SaaS para administrar inmobiliarias de Mendoza. Centraliza propiedades, propietarios, inquilinos, contratos, pagos, gastos, mantenimiento, documentos y reportes en una experiencia navegable y comercialmente presentable.
 
@@ -15,7 +15,7 @@ La aplicación queda disponible en `http://localhost:3000`.
 
 ## Acceso demo
 
-- Email: `admin@nexoinmobiliario.com`
+- Email: `admin@poloinmobiliario.com`
 - Contraseña: `123456`
 
 El acceso es simulado. También se acepta cualquier email válido y una contraseña de al menos seis caracteres.

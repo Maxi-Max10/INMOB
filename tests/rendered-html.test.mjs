@@ -27,7 +27,7 @@ test("server-renders the POLO application shell and metadata", async () => {
 });
 
 test("supports direct application routes", async () => {
-  for (const path of ["/login", "/dashboard", "/properties/p1", "/contracts/c1", "/reports"]) {
+  for (const path of ["/login", "/dashboard", "/properties/p1", "/contracts/c1", "/expenses", "/adjustments", "/help", "/reports"]) {
     const response = await render(path);
     assert.equal(response.status, 200, path);
   }

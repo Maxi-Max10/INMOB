@@ -9,6 +9,7 @@ const sectionRoutes = [
   "contracts",
   "payments",
   "expenses",
+  "adjustments",
   "maintenance",
   "documents",
   "reports",

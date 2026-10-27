@@ -3,7 +3,9 @@ import "./globals.css";
 
 const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? "https://nexo-inmobiliario-mendoza.maxmax011.chatgpt.site";
+  ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://nexo-inmobiliario-mendoza.maxmax011.chatgpt.site");
 const siteOrigin = new URL(siteUrl).origin;
 
 export const metadata: Metadata = {

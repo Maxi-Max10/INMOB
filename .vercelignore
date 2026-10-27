@@ -1,0 +1,10 @@
+.git
+.next
+.wrangler
+node_modules
+dist
+out
+work
+outputs
+.env*
+*.tsbuildinfo

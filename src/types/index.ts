@@ -22,6 +22,10 @@ export interface Property {
   status: PropertyStatus;
   description: string;
   visual: number;
+  operation?: "Alquiler" | "Administración" | "Alquiler y administración";
+  conditions?: string;
+  permittedUse?: string;
+  infrastructure?: string;
 }
 
 export interface Owner {
@@ -59,10 +63,25 @@ export interface Contract {
   value: number;
   deposit: number;
   frequency: string;
-  adjustmentType: "IPC" | "ICL" | "Porcentaje fijo" | "Manual";
+  adjustmentType: "IPC" | "ICL" | "Casa Propia" | "CER" | "UVA" | "CAC" | "IS" | "IPIM" | "Porcentaje fijo" | "Manual";
   nextAdjustment: string;
   notes: string;
   status: ContractStatus;
+  plannedAdjustment?: RentAdjustment;
+  adjustments?: RentAdjustment[];
+}
+
+export interface RentAdjustment {
+  id: string;
+  baseValue: number;
+  coefficient: number;
+  newValue: number;
+  effectiveDate: string;
+  nextDate: string;
+  months: number;
+  index: string;
+  method: string;
+  source: string;
 }
 
 export interface Payment {
@@ -83,10 +102,14 @@ export interface Expense {
   id: string;
   concept: string;
   propertyId: string;
-  category: "Reparación" | "Expensas" | "Impuestos" | "Servicios" | "Mantenimiento" | "Honorarios" | "Otros";
+  category: "Reparación" | "Expensas" | "Tasas municipales" | "Impuestos" | "Servicios" | "Mantenimiento" | "Honorarios" | "Otros";
   amount: number;
   date: string;
   responsible: string;
+  dueDate?: string;
+  paidDate?: string;
+  status?: PaymentStatus;
+  period?: string;
 }
 
 export interface MaintenanceTicket {
